@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Pog Dog Simulator"
+config/name="Pog Dog Simulator Beta"
 run/main_scene="res://scenes/World.tscn"
 boot_splash/image="res://textures/ui/splash.png"
 boot_splash/use_filter=false
