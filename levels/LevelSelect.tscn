@@ -1,0 +1,351 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://sounds/music/Menu.wav" type="AudioStream" id=7]
+[ext_resource path="res://scripts/Music.gd" type="Script" id=8]
+[ext_resource path="res://prefabs/Fade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Theme" id=2]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource( 1 )
+VScrollBar/styles/scroll_focus = null
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Fade" parent="." instance=ExtResource( 9 )]
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -25.5
+margin_top = 3.0
+margin_right = 25.5
+margin_bottom = 17.0
+custom_colors/font_color = Color( 0.854902, 0.882353, 0.898039, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Level Select"
+
+[node name="Shadow" type="Label" parent="Title"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -25.5
+margin_top = 1.0
+margin_right = 25.5
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.227451, 0.286275, 0.34902, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Level Select"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 12.0
+margin_bottom = 23.0
+rect_scale = Vector2( 1, 0.5 )
+clip_text = true
+
+[node name="Levels" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -32.0
+margin_right = 60.0
+margin_bottom = 32.0
+theme = SubResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Levels"]
+margin_right = 120.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 120, 0 )
+custom_constants/separation = 7
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Levels/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 32.0
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels/VBoxContainer/ScrollContainer"]
+margin_right = 128.0
+margin_bottom = 20.0
+custom_constants/separation = 0
+
+[node name="Button" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+
+[node name="Button2" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button3" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button4" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button5" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button6" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button7" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button8" type="Button" parent="Levels/VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Levels/VBoxContainer"]
+margin_top = 39.0
+margin_right = 120.0
+margin_bottom = 71.0
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels/VBoxContainer/ScrollContainer2"]
+margin_right = 128.0
+margin_bottom = 20.0
+custom_constants/separation = 0
+
+[node name="Button" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+
+[node name="Button2" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button3" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button4" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button5" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button6" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button7" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button8" type="Button" parent="Levels/VBoxContainer/ScrollContainer2/HBoxContainer"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="Levels/VBoxContainer"]
+margin_top = 78.0
+margin_right = 120.0
+margin_bottom = 110.0
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels/VBoxContainer/ScrollContainer3"]
+margin_right = 128.0
+margin_bottom = 20.0
+custom_constants/separation = 0
+
+[node name="Button" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+
+[node name="Button2" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button3" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button4" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button5" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button6" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button7" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button8" type="Button" parent="Levels/VBoxContainer/ScrollContainer3/HBoxContainer"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="ScrollContainer4" type="ScrollContainer" parent="Levels/VBoxContainer"]
+margin_top = 117.0
+margin_right = 120.0
+margin_bottom = 149.0
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels/VBoxContainer/ScrollContainer4"]
+margin_right = 128.0
+margin_bottom = 20.0
+custom_constants/separation = 0
+
+[node name="Button" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+
+[node name="Button2" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button3" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button4" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button5" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button6" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button7" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true
+
+[node name="Button8" type="Button" parent="Levels/VBoxContainer/ScrollContainer4/HBoxContainer"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+disabled = true

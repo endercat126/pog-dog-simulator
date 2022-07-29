@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/When The Dog Is Pog.wav-3d7d12637f17ec34c298c83a835e878f.sample"
+
+[deps]
+
+source_file="res://sounds/music/When The Dog Is Pog.wav"
+dest_files=[ "res://.import/When The Dog Is Pog.wav-3d7d12637f17ec34c298c83a835e878f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
