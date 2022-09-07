@@ -49,6 +49,7 @@ func _ready():
 
 # On physics update
 func _physics_process(delta):
+	
 	# Apply gravity
 	if !is_on_floor():
 		motion.y += gravity

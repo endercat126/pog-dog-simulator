@@ -230,9 +230,9 @@ anchor_bottom = 1.0
 
 [node name="Play" type="Button" parent="CanvasLayer/Menu"]
 margin_left = 5.0
-margin_top = 51.0
+margin_top = 59.0
 margin_right = 53.0
-margin_bottom = 62.0
+margin_bottom = 70.0
 focus_mode = 0
 theme = SubResource( 2 )
 enabled_focus_mode = 0
@@ -266,21 +266,11 @@ focus_mode = 0
 theme = SubResource( 9 )
 enabled_focus_mode = 0
 
-[node name="Options" type="Button" parent="CanvasLayer/Menu"]
-margin_left = 5.0
-margin_top = 63.0
-margin_right = 53.0
-margin_bottom = 74.0
-focus_mode = 0
-theme = SubResource( 2 )
-enabled_focus_mode = 0
-text = "OPTIONS"
-
 [node name="Quit" type="Button" parent="CanvasLayer/Menu"]
 margin_left = 5.0
-margin_top = 75.0
+margin_top = 72.0
 margin_right = 53.0
-margin_bottom = 86.0
+margin_bottom = 83.0
 focus_mode = 0
 theme = SubResource( 2 )
 enabled_focus_mode = 0
@@ -303,6 +293,7 @@ layer = 100
 script = ExtResource( 21 )
 
 [node name="Control" type="Control" parent="FromSplash"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -329,5 +320,4 @@ anims/fade = SubResource( 12 )
 [connection signal="pressed" from="CanvasLayer/Menu/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/Discord" to="." method="_on_Discord_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/Itch" to="." method="_on_Itch_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/Quit" to="." method="_on_Quit_pressed"]

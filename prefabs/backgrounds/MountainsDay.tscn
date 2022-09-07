@@ -22,7 +22,7 @@ centered = false
 offset = Vector2( 0, -60 )
 
 [node name="Sun" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.05, 0.05 )
+motion_scale = Vector2( 0.05, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sun"]
 position = Vector2( 136, 8 )
@@ -30,7 +30,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.1, 0.1 )
+motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 160, 0 )
 
 [node name="Sprite" type="Sprite" parent="Clouds"]
@@ -39,7 +39,7 @@ centered = false
 offset = Vector2( 0, -45 )
 
 [node name="Mountains1" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.15, 0.15 )
+motion_scale = Vector2( 0.15, 0 )
 motion_mirroring = Vector2( 160, 0 )
 
 [node name="Sprite" type="Sprite" parent="Mountains1"]
@@ -48,7 +48,7 @@ centered = false
 offset = Vector2( 0, -45 )
 
 [node name="Mountains2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.2, 0.2 )
+motion_scale = Vector2( 0.2, 0 )
 motion_mirroring = Vector2( 160, 0 )
 
 [node name="Sprite" type="Sprite" parent="Mountains2"]
@@ -57,7 +57,7 @@ centered = false
 offset = Vector2( 0, -45 )
 
 [node name="Bushes1" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.3, 0.3 )
+motion_scale = Vector2( 0.3, 0 )
 motion_mirroring = Vector2( 160, 0 )
 
 [node name="Sprite" type="Sprite" parent="Bushes1"]
@@ -66,7 +66,7 @@ centered = false
 offset = Vector2( 0, -45 )
 
 [node name="Grass" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.3, 0.3 )
+motion_scale = Vector2( 0.3, 0 )
 motion_mirroring = Vector2( 160, 0 )
 
 [node name="Sprite" type="Sprite" parent="Grass"]
@@ -75,7 +75,7 @@ centered = false
 offset = Vector2( 0, -45 )
 
 [node name="Bushes2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.3, 0.3 )
+motion_scale = Vector2( 0.3, 0 )
 motion_mirroring = Vector2( 160, 0 )
 
 [node name="Sprite" type="Sprite" parent="Bushes2"]

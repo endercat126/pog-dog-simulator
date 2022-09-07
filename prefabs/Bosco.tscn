@@ -181,11 +181,6 @@ position = Vector2( 0, 6 )
 rotation = 1.5708
 shape = SubResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
-smoothing_speed = 10.0
-
 [node name="HurtAnim" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 8 )
 anims/heal = SubResource( 9 )
@@ -234,3 +229,6 @@ volume_db = -10.0
 [node name="StoreJumpTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
