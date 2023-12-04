@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=198]
@@ -60,6 +60,7 @@ script = ExtResource( 1 )
 shape = SubResource( 196 )
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 40.0
@@ -72,7 +73,6 @@ text = "Use WASD or the arrow keys to move"
 autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fade_in"
 anims/RESET = SubResource( 197 )
 anims/fade_in = SubResource( 198 )
 anims/fade_out = SubResource( 199 )

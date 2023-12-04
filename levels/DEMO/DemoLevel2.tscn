@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Music.gd" type="Script" id=1]
 [ext_resource path="res://sounds/music/When The Dog Is Pog.wav" type="AudioStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scripts/ChipCount.gd" type="Script" id=7]
 [ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=8]
 [ext_resource path="res://prefabs/Fade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/Tip.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/HealthBar.gd" type="Script" id=11]
 [ext_resource path="res://sprites/objects/chip.png" type="Texture" id=12]
 [ext_resource path="res://prefabs/Bee.tscn" type="PackedScene" id=13]
@@ -224,6 +225,7 @@ position = Vector2( 388, 40 )
 [node name="Flag" parent="ForegroundObjects" instance=ExtResource( 15 )]
 position = Vector2( 456, 48 )
 scale = Vector2( -1, 1 )
+next_level = "res://levels/DEMO/DemoLevel3.tscn"
 
 [node name="Bosco" parent="." instance=ExtResource( 4 )]
 position = Vector2( 56, 40 )
@@ -287,5 +289,9 @@ position = Vector2( 192, 160 )
 shape = SubResource( 2 )
 
 [node name="Fade" parent="." instance=ExtResource( 9 )]
+
+[node name="Tip" parent="." instance=ExtResource( 10 )]
+position = Vector2( 241, 34 )
+text = "These explode"
 
 [connection signal="body_entered" from="Void" to="Void" method="_on_Void_body_entered"]
