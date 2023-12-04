@@ -1,0 +1,323 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=1]
+[ext_resource path="res://new_styleboxtexture.tres" type="StyleBox" id=2]
+[ext_resource path="res://sprites/backgrounds/sky_day.png" type="Texture" id=3]
+[ext_resource path="res://sprites/ui/button_disabled.png" type="Texture" id=4]
+[ext_resource path="res://sprites/ui/button_hover.png" type="Texture" id=5]
+[ext_resource path="res://sprites/ui/button_pressed.png" type="Texture" id=6]
+[ext_resource path="res://sprites/ui/pog_dog.png" type="Texture" id=7]
+[ext_resource path="res://sprites/backgrounds/bushes_2.png" type="Texture" id=8]
+[ext_resource path="res://sprites/backgrounds/sun.png" type="Texture" id=9]
+[ext_resource path="res://sprites/backgrounds/ocean.png" type="Texture" id=10]
+[ext_resource path="res://sprites/backgrounds/bushes_1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/backgrounds/grass.png" type="Texture" id=12]
+[ext_resource path="res://sprites/backgrounds/clouds.png" type="Texture" id=13]
+[ext_resource path="res://scripts/MenuMoveCamera.gd" type="Script" id=14]
+[ext_resource path="res://sprites/ui/itch_button_hover.png" type="Texture" id=15]
+[ext_resource path="res://sprites/ui/itch_button_pressed.png" type="Texture" id=16]
+[ext_resource path="res://new_theme.tres" type="Theme" id=17]
+[ext_resource path="res://sprites/ui/itch_button.png" type="Texture" id=18]
+[ext_resource path="res://sounds/music/Snowy Dogmas.wav" type="AudioStream" id=19]
+[ext_resource path="res://scripts/Music.gd" type="Script" id=20]
+[ext_resource path="res://scripts/FromSplash.gd" type="Script" id=21]
+[ext_resource path="res://sprites/splash/pog_dog.png" type="Texture" id=22]
+[ext_resource path="res://scripts/MainMenu2.gd" type="Script" id=23]
+[ext_resource path="res://prefabs/Fade2.tscn" type="PackedScene" id=24]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 7, 8 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 7, 8 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 7, 8 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id=2]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.156863, 0.219608, 0.321569, 1 )
+Button/colors/font_color_hover = Color( 0.858824, 0.858824, 0.858824, 1 )
+Button/colors/font_color_pressed = Color( 0.780392, 0.780392, 0.780392, 1 )
+Button/styles/disabled = SubResource( 3 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = ExtResource( 2 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 9, 10 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 18 )
+region_rect = Rect2( 0, 0, 9, 10 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 9, 10 )
+
+[sub_resource type="Theme" id=9]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.854902, 0.882353, 0.898039, 1 )
+Button/colors/font_color_disabled = Color( 0.521569, 0.603922, 0.662745, 1 )
+Button/colors/font_color_hover = Color( 0.854902, 0.882353, 0.898039, 1 )
+Button/colors/font_color_pressed = Color( 0.854902, 0.882353, 0.898039, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 1 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 8 )
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PogDog:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PogDog:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 23 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 160, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -60 )
+
+[node name="Sun" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sun"]
+position = Vector2( 136, 8 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 160, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Clouds"]
+texture = ExtResource( 13 )
+centered = false
+offset = Vector2( 0, -45 )
+
+[node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
+motion_mirroring = Vector2( 160, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Ocean"]
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( 0, -45 )
+
+[node name="Bushes1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 160, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Bushes1"]
+texture = ExtResource( 11 )
+centered = false
+offset = Vector2( 0, -45 )
+
+[node name="Grass" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 160, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Grass"]
+texture = ExtResource( 12 )
+centered = false
+offset = Vector2( 0, -45 )
+
+[node name="Bushes2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 160, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Bushes2"]
+texture = ExtResource( 8 )
+centered = false
+offset = Vector2( 0, -60 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+script = ExtResource( 14 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Play" type="Button" parent="CanvasLayer/Menu"]
+margin_left = 5.0
+margin_top = 59.0
+margin_right = 53.0
+margin_bottom = 70.0
+focus_mode = 0
+theme = SubResource( 2 )
+enabled_focus_mode = 0
+text = "PLAY"
+
+[node name="Discord" type="Button" parent="CanvasLayer/Menu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -17.0
+margin_right = -7.0
+margin_bottom = -7.0
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 0
+theme = ExtResource( 17 )
+enabled_focus_mode = 0
+
+[node name="Itch" type="Button" parent="CanvasLayer/Menu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -34.0
+margin_right = -7.0
+margin_bottom = -24.0
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 0
+theme = SubResource( 9 )
+enabled_focus_mode = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Menu"]
+margin_left = 5.0
+margin_top = 72.0
+margin_right = 53.0
+margin_bottom = 83.0
+focus_mode = 0
+theme = SubResource( 2 )
+enabled_focus_mode = 0
+text = "QUIT"
+
+[node name="PogDog" type="TextureRect" parent="CanvasLayer/Menu"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 45.0
+margin_bottom = 25.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+script = ExtResource( 20 )
+
+[node name="FromSplash" type="CanvasLayer" parent="."]
+layer = 100
+script = ExtResource( 21 )
+
+[node name="Control" type="Control" parent="FromSplash"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="FromSplash/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.109804, 0.105882, 0.168627, 1 )
+
+[node name="PogDog" type="TextureRect" parent="FromSplash/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 22 )
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FromSplash/Control"]
+anims/RESET = SubResource( 11 )
+anims/fade = SubResource( 12 )
+
+[node name="Fade" parent="." instance=ExtResource( 24 )]
+
+[connection signal="pressed" from="CanvasLayer/Menu/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Discord" to="." method="_on_Discord_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Itch" to="." method="_on_Itch_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Quit" to="." method="_on_Quit_pressed"]

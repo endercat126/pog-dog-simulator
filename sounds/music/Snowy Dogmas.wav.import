@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Snowy Dogmas.wav-f83543fa08c040eda0c60e98cb05d30d.sample"
+
+[deps]
+
+source_file="res://sounds/music/Snowy Dogmas.wav"
+dest_files=[ "res://.import/Snowy Dogmas.wav-f83543fa08c040eda0c60e98cb05d30d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
