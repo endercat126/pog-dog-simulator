@@ -175,6 +175,8 @@ func die():
 	jumps_left = 0
 	
 func respawn():
+	get_tree().reload_current_scene()
+	chips = 0
 	health = max_health
 	position = spawn_point
 	print("Player respawned!")
