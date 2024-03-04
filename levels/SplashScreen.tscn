@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/splash/godot.png" type="Texture" id=1]
 [ext_resource path="res://sprites/splash/pog_dog.png" type="Texture" id=2]
 [ext_resource path="res://sprites/splash/endercat_studios.png" type="Texture" id=3]
 [ext_resource path="res://scripts/SplashScreen.gd" type="Script" id=4]
+[ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -85,6 +86,16 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
 [node name="SplashScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -100,21 +111,21 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 3 )
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="Godot" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="PogDog" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "splash"
@@ -125,4 +136,29 @@ anims/splash = SubResource( 2 )
 wait_time = 15.0
 autostart = true
 
+[node name="Button" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -15.0
+margin_right = 80.0
+margin_bottom = -4.0
+custom_colors/font_color_disabled = Color( 0.109804, 0.105882, 0.168627, 1 )
+custom_colors/font_color_focus = Color( 0.176471, 0.329412, 0.388235, 1 )
+custom_colors/font_color = Color( 0.156863, 0.219608, 0.321569, 1 )
+custom_colors/font_color_hover = Color( 0.176471, 0.329412, 0.388235, 1 )
+custom_colors/font_color_pressed = Color( 0.176471, 0.329412, 0.388235, 1 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "skip"
+flat = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="return_to_menu"]

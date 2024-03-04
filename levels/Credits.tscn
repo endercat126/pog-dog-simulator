@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=1]
+[ext_resource path="res://sprites/bosco/bosco_real_life.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/Fade.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.109804, 0.105882, 0.168627, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.458824 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -5.0
+margin_bottom = -10.0
+custom_colors/font_color = Color( 0.780392, 0.780392, 0.780392, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Art & code by Ender
+Music by Zilly
+
+Special thanks to Bosco"
+align = 2
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 7.0
+custom_fonts/font = ExtResource( 1 )
+text = "Pog Dog Simulator"
+align = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -15.0
+margin_right = 80.0
+margin_bottom = -4.0
+custom_colors/font_color_disabled = Color( 0.109804, 0.105882, 0.168627, 1 )
+custom_colors/font_color_focus = Color( 0.176471, 0.329412, 0.388235, 1 )
+custom_colors/font_color = Color( 0.156863, 0.219608, 0.321569, 1 )
+custom_colors/font_color_hover = Color( 0.176471, 0.329412, 0.388235, 1 )
+custom_colors/font_color_pressed = Color( 0.176471, 0.329412, 0.388235, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "return to menu"
+flat = true
+
+[node name="Fade" parent="." instance=ExtResource( 4 )]
+
+[connection signal="pressed" from="Button" to="." method="return_to_menu"]

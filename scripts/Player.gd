@@ -140,6 +140,8 @@ func _process(delta):
 	Global.player_health = health
 	
 	Global.player_chips = chips
+	
+	$Camera2D.zoom = Vector2(0.75, 0.75) if Global.is_mobile else Vector2.ONE
 
 func hurt(damage):
 	if not dead:

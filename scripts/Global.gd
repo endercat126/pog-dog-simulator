@@ -11,3 +11,8 @@ var first_menu = true
 
 var viewport_container
 var viewport
+
+var is_mobile = false
+
+func _process(delta):
+	is_mobile = OS.get_name() in ["Android", "iOS"]

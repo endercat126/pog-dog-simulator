@@ -3,11 +3,11 @@ extends Control
 
 
 func _on_Discord_pressed():
-	OS.shell_open("https://discord.gg/NR8cMMmZ6R")
+	OS.shell_open("http://endercat.ca/discord")
 
 
 func _on_Itch_pressed():
-	OS.shell_open("https://endercatstudios.itch.io/")
+	OS.shell_open("http://endercat.ca/itch")
 
 
 func _on_Play_pressed():
@@ -24,3 +24,7 @@ func _on_Quit_pressed():
 	$Fade/Control/AnimationPlayer.play("out")
 	yield($Fade/Control/AnimationPlayer, "animation_finished")
 	get_tree().quit()
+
+
+func _on_Github_pressed():
+	OS.shell_open("https://github.com/endercat126/pog-dog-simulator")
