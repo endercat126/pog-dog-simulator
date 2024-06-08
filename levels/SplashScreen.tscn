@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/splash/godot.png" type="Texture" id=1]
-[ext_resource path="res://sprites/splash/pog_dog.png" type="Texture" id=2]
+[ext_resource path="res://sprites.preview/ui/pog_dog.png" type="Texture" id=2]
 [ext_resource path="res://sprites/splash/endercat_studios.png" type="Texture" id=3]
 [ext_resource path="res://scripts/SplashScreen.gd" type="Script" id=4]
 [ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=5]
@@ -122,10 +122,15 @@ stretch_mode = 6
 
 [node name="PogDog" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -45.0
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-stretch_mode = 6
+stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "splash"

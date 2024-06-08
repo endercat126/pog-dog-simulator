@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Tip.gd" type="Script" id=1]
 [ext_resource path="res://font/Dialogue.tres" type="Theme" id=2]
+[ext_resource path="res://prefabs/OutlineLabel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=196]
 extents = Vector2( 48, 40 )
@@ -9,7 +10,7 @@ extents = Vector2( 48, 40 )
 [sub_resource type="Animation" id=197]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Label:modulate")
+tracks/0/path = NodePath("Label111111:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,7 +26,7 @@ tracks/0/keys = {
 resource_name = "fade_in"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Label:modulate")
+tracks/0/path = NodePath("Label111111:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -41,7 +42,7 @@ tracks/0/keys = {
 resource_name = "fade_out"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Label:modulate")
+tracks/0/path = NodePath("Label111111:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -59,7 +60,41 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 196 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" parent="." instance=ExtResource( 3 )]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 40.0
+margin_bottom = -8.0
+custom_constants/line_spacing = 2
+text = "Use WASD or the arrow keys to move"
+align = 0
+valign = 0
+autowrap = true
+text_colour = Color( 0.772549, 0.811765, 0.486275, 1 )
+outline_color = Color( 0.109804, 0.105882, 0.168627, 1 )
+
+[node name="topbottom" parent="Label" index="0"]
+margin_right = 72.0
+margin_bottom = 23.0
+custom_constants/line_spacing = 2
+
+[node name="leftright" parent="Label" index="1"]
+margin_right = 71.0
+margin_bottom = 24.0
+custom_constants/line_spacing = 2
+
+[node name="tlbr" parent="Label" index="2"]
+margin_right = 71.0
+margin_bottom = 23.0
+custom_constants/line_spacing = 2
+
+[node name="trbl" parent="Label" index="3"]
+margin_right = 73.0
+margin_bottom = 23.0
+custom_constants/line_spacing = 2
+
+[node name="Label111111" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -32.0
 margin_top = -32.0
@@ -81,3 +116,5 @@ anims/fade_out = SubResource( 199 )
 
 [connection signal="body_entered" from="." to="." method="_on_entered"]
 [connection signal="body_exited" from="." to="." method="_on_exited"]
+
+[editable path="Label"]

@@ -2,6 +2,9 @@ extends Area2D
 
 var player = null
 
+func _ready() -> void:
+	$AnimationPlayer.playback_speed = rand_range(0.8, 1.2)
+
 func _process(delta):
 	if player != null:
 		if player.get_node("HurtTimer").is_stopped():

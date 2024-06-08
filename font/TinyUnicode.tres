@@ -3,6 +3,7 @@
 [ext_resource path="res://font/TinyUnicode.ttf" type="DynamicFontData" id=1]
 
 [resource]
+outline_color = Color( 0.109804, 0.105882, 0.168627, 0 )
 extra_spacing_top = -5
 extra_spacing_bottom = -3
 font_data = ExtResource( 1 )
