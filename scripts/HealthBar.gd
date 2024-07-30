@@ -10,6 +10,8 @@ func _ready():
 	previous_health = Global.player_health
 
 func _process(delta):
+	rect_position = Vector2(32, 6) if Global.is_mobile else Vector2(2, 2)
+	
 	if Global.update_health_bar:
 		updateMax()
 		Global.update_health_bar = false

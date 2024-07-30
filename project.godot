@@ -104,11 +104,19 @@ world_down={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[locale]
+
+locale_filter=[ 0, [  ] ]
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.509804, 0.847059, 0.913725, 1 )
+environment/default_clear_color=Color( 0.596078, 0.819608, 0.807843, 1 )
 environment/default_environment="res://default_env.tres"

@@ -38,7 +38,7 @@ margin_right = -5.0
 margin_bottom = -10.0
 custom_colors/font_color = Color( 0.780392, 0.780392, 0.780392, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Art & code by Ender
+text = "Art & code by Ava
 Music by Zilly
 
 Special thanks to Bosco"

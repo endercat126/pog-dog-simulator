@@ -20,18 +20,50 @@ func menu_go_back():
 	update_menus()
 
 func switch_menu(menu: String):
-	$Fade/Control/AnimationPlayer.play("out")
-	yield($Fade/Control/AnimationPlayer, "animation_finished")
+	$Fade.fade_out()
+	yield($Fade/AnimationPlayer, "animation_finished")
 	current_menu = menu
 	update_menus()
 	if current_menu == "LevelSelect":
-		get_tree().change_scene("res://levels/DEMO/DemoLevel1.tscn")
-	$Fade/Control/AnimationPlayer.play("in")
+		get_tree().change_scene("res://levels/Summer/Summer1.tscn")
+	$Fade.fade_in()
 	
 func open_url(url: String):
 	OS.shell_open(url)
 
 func _on_Quit_pressed():
-	$Fade/Control/AnimationPlayer.play("out")
-	yield($Fade/Control/AnimationPlayer, "animation_finished")
+	$Fade.fade_out()
+	yield($Fade/AnimationPlayer, "animation_finished")
 	get_tree().quit()
+
+
+
+
+onready var fullscreen_button = $CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right/GraphicsPanel/Fullscreen
+onready var language_dropdown = $CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/LanguagePanel/OptionButton
+
+
+func toggle_fullscreen():
+	print("fs")
+
+	OS.window_fullscreen = !OS.window_fullscreen
+	
+	if OS.window_fullscreen:
+		fullscreen_button.text = "Windowed"
+	else:
+		fullscreen_button.text = "Fullscreen"
+
+
+func _ready():
+	$CanvasLayer/MainMenu/Label.text = Global.VERSION
+	if OS.window_fullscreen:
+		fullscreen_button.text = "Windowed"
+	else:
+		fullscreen_button.text = "Fullscreen"
+
+	# add language options
+	language_dropdown.add_item("English")
+	language_dropdown.add_item("French")
+	language_dropdown.add_item("Swedish")
+	language_dropdown.add_item("Japanese")
+

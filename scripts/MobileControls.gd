@@ -1,17 +1,25 @@
 extends CanvasLayer
 
+var actions = []
+
 func _ready():
-	pass
+	bind($LR/Left, "world_left")
+	bind($LR/Right, "world_right")
+	bind($J/Jump, "world_jump")
+	bind($J/Down, "world_down")
+	bind($M/Menu, "menu_pause")
+	
+	for action in actions:
+		Input.action_release(action)
 
 func _process(delta):
 	self.visible = Global.is_mobile
+	$J/Down.visible = Global.standing_on_platform
 
-func simulate_input(input_name: String, pressed: int):
-	if pressed == 1:
-		Input.action_press(input_name)
-	elif pressed == 0:
-		Input.action_release(input_name)
-	elif pressed == 2:
-		Input.action_press(input_name)
+func bind(node: Node2D, input: String) -> void:
+	while not node:
 		yield(get_tree().create_timer(0.01), "timeout")
-		Input.action_release(input_name)
+	
+	actions.append(input)
+	node.connect("pressed", Input, "action_press", [input])
+	node.connect("released", Input, "action_release", [input])

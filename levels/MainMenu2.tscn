@@ -1,16 +1,11 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://font/TinyUnicode.tres" type="DynamicFont" id=1]
 [ext_resource path="res://levels/ButtonsTheme.tres" type="Theme" id=2]
-[ext_resource path="res://sprites/backgrounds/sky_day.png" type="Texture" id=3]
+[ext_resource path="res://prefabs/backgrounds/MountainsDay.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites.preview/ui/pog_dog.png" type="Texture" id=4]
 [ext_resource path="res://prefabs/OutlineLabel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/backgrounds/bushes_2.png" type="Texture" id=8]
-[ext_resource path="res://sprites/backgrounds/sun.png" type="Texture" id=9]
-[ext_resource path="res://sprites/backgrounds/ocean.png" type="Texture" id=10]
-[ext_resource path="res://sprites/backgrounds/bushes_1.png" type="Texture" id=11]
-[ext_resource path="res://sprites/backgrounds/grass.png" type="Texture" id=12]
-[ext_resource path="res://sprites/backgrounds/clouds.png" type="Texture" id=13]
+[ext_resource path="res://prefabs/Fade.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/MenuMoveCamera.gd" type="Script" id=14]
 [ext_resource path="res://sprites/ui/itch_button_hover.png" type="Texture" id=15]
 [ext_resource path="res://sprites/ui/itch_button_pressed.png" type="Texture" id=16]
@@ -18,13 +13,16 @@
 [ext_resource path="res://sprites/ui/itch_button.png" type="Texture" id=18]
 [ext_resource path="res://sounds/music/Snowy Dogmas 2.wav" type="AudioStream" id=19]
 [ext_resource path="res://scripts/Music.gd" type="Script" id=20]
-[ext_resource path="res://scripts/FromSplash.gd" type="Script" id=21]
-[ext_resource path="res://sprites/splash/pog_dog.png" type="Texture" id=22]
+[ext_resource path="res://sprites/ui/button_disabled.png" type="Texture" id=21]
+[ext_resource path="res://sprites/ui/button_hover.png" type="Texture" id=22]
 [ext_resource path="res://scripts/MainMenu2.gd" type="Script" id=23]
-[ext_resource path="res://prefabs/Fade2.tscn" type="PackedScene" id=24]
+[ext_resource path="res://sprites/ui/button.png" type="Texture" id=24]
 [ext_resource path="res://sprites.preview/ui/github_button_pressed.png" type="Texture" id=25]
 [ext_resource path="res://sprites.preview/ui/github_button.png" type="Texture" id=26]
 [ext_resource path="res://sprites.preview/ui/github_button_hover.png" type="Texture" id=27]
+[ext_resource path="res://sprites/ui/arrow.png" type="Texture" id=28]
+[ext_resource path="res://sprites/ui/scroll_fill.png" type="Texture" id=30]
+[ext_resource path="res://sprites/ui/slider_bg.png" type="Texture" id=31]
 
 [sub_resource type="StyleBoxTexture" id=1]
 region_rect = Rect2( 0, 0, 16, 16 )
@@ -79,129 +77,50 @@ Button/styles/hover = SubResource( 13 )
 Button/styles/normal = SubResource( 14 )
 Button/styles/pressed = SubResource( 15 )
 
-[sub_resource type="Animation" id=11]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("PogDog:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="StyleBoxTexture" id=25]
+texture = ExtResource( 30 )
+region_rect = Rect2( 0, 0, 5, 8 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 4.0
+margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[sub_resource type="Animation" id=12]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/path = NodePath("PogDog:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
+[sub_resource type="StyleBoxTexture" id=26]
+texture = ExtResource( 31 )
+region_rect = Rect2( 0, 0, 7, 8 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="Theme" id=27]
+HSlider/icons/grabber = ExtResource( 24 )
+HSlider/icons/grabber_disabled = ExtResource( 21 )
+HSlider/icons/grabber_highlight = ExtResource( 22 )
+HSlider/styles/grabber_area = SubResource( 25 )
+HSlider/styles/grabber_area_highlight = SubResource( 25 )
+HSlider/styles/slider = SubResource( 26 )
+
+[sub_resource type="StyleBoxTexture" id=24]
+texture = ExtResource( 28 )
+region_rect = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="StyleBoxTexture" id=23]
+texture = ExtResource( 28 )
+region_rect = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="StyleBoxTexture" id=22]
+texture = ExtResource( 28 )
+region_rect = Rect2( 0, 0, 8, 8 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 23 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_ignore_camera_zoom = true
-
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0, 0 )
-motion_mirroring = Vector2( 160, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
-texture = ExtResource( 3 )
-centered = false
-offset = Vector2( 0, -60 )
-
-[node name="Sun" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.05, 0.05 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sun"]
-position = Vector2( 136, 8 )
-texture = ExtResource( 9 )
-centered = false
-
-[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 160, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Clouds"]
-texture = ExtResource( 13 )
-centered = false
-offset = Vector2( 0, -45 )
-
-[node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0, 0.15 )
-motion_mirroring = Vector2( 160, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Ocean"]
-texture = ExtResource( 10 )
-centered = false
-offset = Vector2( 0, -45 )
-
-[node name="Bushes1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0.3 )
-motion_mirroring = Vector2( 160, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Bushes1"]
-texture = ExtResource( 11 )
-centered = false
-offset = Vector2( 0, -45 )
-
-[node name="Grass" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0.3 )
-motion_mirroring = Vector2( 160, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Grass"]
-texture = ExtResource( 12 )
-centered = false
-offset = Vector2( 0, -45 )
-
-[node name="Bushes2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0.3 )
-motion_mirroring = Vector2( 160, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Bushes2"]
-texture = ExtResource( 8 )
-centered = false
-offset = Vector2( 0, -60 )
+[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -221,37 +140,26 @@ margin_left = 5.0
 margin_top = -60.0
 margin_right = 75.0
 margin_bottom = -4.0
-custom_constants/separation = 1
+custom_constants/separation = 2
 alignment = 2
 
 [node name="Play" type="Button" parent="CanvasLayer/MainMenu/GridContainer"]
-margin_top = 21.0
+margin_top = 19.0
 margin_right = 70.0
-margin_bottom = 32.0
+margin_bottom = 30.0
 focus_mode = 0
 theme = ExtResource( 2 )
 enabled_focus_mode = 0
 text = "PLAY"
 
 [node name="Options" type="Button" parent="CanvasLayer/MainMenu/GridContainer"]
-margin_top = 33.0
+margin_top = 32.0
 margin_right = 70.0
-margin_bottom = 44.0
+margin_bottom = 43.0
 focus_mode = 0
 theme = ExtResource( 2 )
 enabled_focus_mode = 0
 text = "OPTIONS"
-
-[node name="Mods" type="Button" parent="CanvasLayer/MainMenu/GridContainer"]
-visible = false
-margin_top = 33.0
-margin_right = 70.0
-margin_bottom = 44.0
-focus_mode = 0
-theme = ExtResource( 2 )
-disabled = true
-enabled_focus_mode = 0
-text = "MODS"
 
 [node name="Quit" type="Button" parent="CanvasLayer/MainMenu/GridContainer"]
 margin_top = 45.0
@@ -334,6 +242,11 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/OptionsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.109804, 0.105882, 0.168627, 0.509804 )
+
 [node name="OutlineLabel" parent="CanvasLayer/OptionsMenu" instance=ExtResource( 5 )]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -345,43 +258,162 @@ text = "Options"
 text_colour = Color( 1, 1, 1, 1 )
 outline_color = Color( 0.14902, 0.168627, 0.258824, 1 )
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OptionsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 14.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/OptionsMenu/MarginContainer"]
+margin_right = 152.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+
+[node name="VolumePanel" type="VBoxContainer" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left"]
+margin_right = 74.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 72, 0 )
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/VolumePanel"]
+margin_right = 74.0
+margin_bottom = 5.0
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Volume"
+
+[node name="MasterSliderLabel" type="Label" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/VolumePanel"]
+margin_top = 9.0
+margin_right = 74.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Sounds: 75%"
+
+[node name="MasterSlider" type="HSlider" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/VolumePanel"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 26.0
+focus_mode = 0
+theme = SubResource( 27 )
+value = 75.0
+
+[node name="MusicSliderLabel" type="Label" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/VolumePanel"]
+margin_top = 30.0
+margin_right = 74.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Music: 75%"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/VolumePanel"]
+margin_top = 39.0
+margin_right = 74.0
+margin_bottom = 47.0
+focus_mode = 0
+theme = SubResource( 27 )
+value = 75.0
+
+[node name="LanguagePanel" type="VBoxContainer" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left"]
+margin_top = 52.0
+margin_right = 74.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 72, 0 )
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/LanguagePanel"]
+margin_right = 74.0
+margin_bottom = 5.0
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Left/LanguagePanel"]
+margin_top = 9.0
+margin_right = 74.0
+margin_bottom = 24.0
+focus_mode = 0
+theme = ExtResource( 2 )
+
+[node name="Right" type="VBoxContainer" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer"]
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+
+[node name="GraphicsPanel" type="VBoxContainer" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right"]
+margin_right = 74.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 72, 0 )
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right/GraphicsPanel"]
+margin_right = 74.0
+margin_bottom = 5.0
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Graphics"
+
+[node name="Fullscreen" type="Button" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right/GraphicsPanel"]
+margin_top = 9.0
+margin_right = 74.0
+margin_bottom = 20.0
+focus_mode = 0
+theme = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "Fullscreen"
+
+[node name="ZoomSliderLabel" type="Label" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right/GraphicsPanel"]
+margin_top = 24.0
+margin_right = 74.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Zoom: 100%"
+
+[node name="ZoomSlider" type="HSlider" parent="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right/GraphicsPanel"]
+margin_top = 33.0
+margin_right = 74.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 0, 8 )
+focus_mode = 0
+theme = SubResource( 27 )
+value = 100.0
+
+[node name="Back" type="Button" parent="CanvasLayer/OptionsMenu"]
+margin_left = 4.0
+margin_right = 16.0
+margin_bottom = 12.0
+focus_mode = 0
+theme = ExtResource( 2 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 22 )
+enabled_focus_mode = 0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
+bus = "Music"
 script = ExtResource( 20 )
 
-[node name="FromSplash" type="CanvasLayer" parent="."]
-layer = 100
-script = ExtResource( 21 )
-
-[node name="Control" type="Control" parent="FromSplash"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="FromSplash/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 0.109804, 0.105882, 0.168627, 1 )
-
-[node name="PogDog" type="TextureRect" parent="FromSplash/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource( 22 )
-stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FromSplash/Control"]
-anims/RESET = SubResource( 11 )
-anims/fade = SubResource( 12 )
-
-[node name="Fade" parent="." instance=ExtResource( 24 )]
+[node name="Fade" parent="." instance=ExtResource( 6 )]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/GridContainer/Play" to="." method="switch_menu" binds= [ "LevelSelect" ]]
 [connection signal="pressed" from="CanvasLayer/MainMenu/GridContainer/Options" to="." method="switch_menu" binds= [ "OptionsMenu" ]]
-[connection signal="pressed" from="CanvasLayer/MainMenu/GridContainer/Mods" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/GridContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Discord" to="." method="open_url" binds= [ "http://endercat.ca/discord" ]]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Itch" to="." method="open_url" binds= [ "https://endercatstudios.itch.io" ]]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Github" to="." method="open_url" binds= [ "https://github.com/endercat126/pog-dog-simulator" ]]
+[connection signal="pressed" from="CanvasLayer/OptionsMenu/MarginContainer/VBoxContainer/Right/GraphicsPanel/Fullscreen" to="." method="toggle_fullscreen"]
+[connection signal="pressed" from="CanvasLayer/OptionsMenu/Back" to="." method="switch_menu" binds= [ "MainMenu" ]]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/MobileControls.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/android/buttons.png" type="Texture" id=4]
@@ -19,6 +19,14 @@ region = Rect2( 2, 18, 11, 13 )
 atlas = ExtResource( 4 )
 region = Rect2( 18, 18, 11, 13 )
 
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 2, 50, 11, 13 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 4 )
+region = Rect2( 18, 50, 11, 13 )
+
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 4 )
 region = Rect2( 2, 34, 11, 13 )
@@ -27,8 +35,15 @@ region = Rect2( 2, 34, 11, 13 )
 atlas = ExtResource( 4 )
 region = Rect2( 18, 34, 11, 13 )
 
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 2, 66, 11, 13 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 18, 66, 11, 13 )
+
 [node name="MobileControls" type="CanvasLayer"]
-visible = false
 script = ExtResource( 1 )
 
 [node name="LR" type="Control" parent="."]
@@ -40,15 +55,28 @@ margin_right = 51.0
 margin_bottom = -11.0
 rect_scale = Vector2( 1.2, 1.2 )
 
-[node name="Left2" type="TouchScreenButton" parent="LR"]
+[node name="Left" type="TouchScreenButton" parent="LR"]
 position = Vector2( 0, 22.5 )
 normal = SubResource( 4 )
 pressed = SubResource( 5 )
 
-[node name="Right2" type="TouchScreenButton" parent="LR"]
+[node name="Right" type="TouchScreenButton" parent="LR"]
 position = Vector2( 12.5, 22.5 )
 normal = SubResource( 6 )
 pressed = SubResource( 7 )
+
+[node name="M" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -59.0
+margin_right = -59.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="Menu" type="TouchScreenButton" parent="M"]
+position = Vector2( 29.167, 6 )
+normal = SubResource( 10 )
+pressed = SubResource( 11 )
 
 [node name="J" type="Control" parent="."]
 anchor_left = 1.0
@@ -61,14 +89,12 @@ margin_right = -19.0
 margin_bottom = -11.0
 rect_scale = Vector2( 1.2, 1.2 )
 
-[node name="Jump2" type="TouchScreenButton" parent="J"]
-position = Vector2( 29.1667, 22.5 )
+[node name="Jump" type="TouchScreenButton" parent="J"]
+position = Vector2( 29.167, 22.5 )
 normal = SubResource( 8 )
 pressed = SubResource( 9 )
 
-[connection signal="pressed" from="LR/Left2" to="." method="simulate_input" binds= [ "world_left", 1 ]]
-[connection signal="released" from="LR/Left2" to="." method="simulate_input" binds= [ "world_left", 0 ]]
-[connection signal="pressed" from="LR/Right2" to="." method="simulate_input" binds= [ "world_right", 1 ]]
-[connection signal="released" from="LR/Right2" to="." method="simulate_input" binds= [ "world_right", 0 ]]
-[connection signal="pressed" from="J/Jump2" to="." method="simulate_input" binds= [ "world_jump", 1 ]]
-[connection signal="released" from="J/Jump2" to="." method="simulate_input" binds= [ "world_jump", 0 ]]
+[node name="Down" type="TouchScreenButton" parent="J"]
+position = Vector2( 16.667, 22.5 )
+normal = SubResource( 12 )
+pressed = SubResource( 13 )

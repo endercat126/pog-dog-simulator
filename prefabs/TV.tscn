@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sounds/sfx/click.wav" type="AudioStream" id=1]
+[ext_resource path="res://sprites/objects/tv.png" type="Texture" id=2]
+[ext_resource path="res://scripts/tv.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.223729, 0.59322 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.215686, 0.215686, 0.215686, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "flicker"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 0.7, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 1, 2, 3, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.215686, 0.215686, 0.215686, 1 ), Color( 0.270588, 0.270588, 0.270588, 1 ), Color( 0.25098, 0.25098, 0.25098, 1 ), Color( 0.443137, 0.443137, 0.443137, 1 ), Color( 0.541176, 0.541176, 0.541176, 1 ), Color( 0.192157, 0.192157, 0.192157, 1 ), Color( 0.447059, 0.447059, 0.447059, 1 ), Color( 0.384314, 0.384314, 0.384314, 1 ), Color( 0.215686, 0.215686, 0.215686, 1 ), Color( 0.294118, 0.294118, 0.294118, 1 ), Color( 0.192157, 0.192157, 0.192157, 1 ), Color( 0.25098, 0.25098, 0.25098, 1 ), Color( 0.494118, 0.494118, 0.494118, 1 ), Color( 0.219608, 0.219608, 0.219608, 1 ), Color( 0.541176, 0.541176, 0.541176, 1 ), Color( 0.447059, 0.447059, 0.447059, 1 ), Color( 0.619608, 0.619608, 0.619608, 1 ), Color( 0.592157, 0.592157, 0.592157, 1 ), Color( 0.239216, 0.239216, 0.239216, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 7, 5 )
+
+[node name="TV" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 4
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = SubResource( 2 )
+color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "flicker"
+anims/RESET = SubResource( 3 )
+anims/flicker = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_TV_body_entered"]

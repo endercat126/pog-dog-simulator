@@ -46,17 +46,21 @@ func _ready():
 	Global.player_health = health
 	Global.update_health_bar = true
 	
+	Global.connect("down_platform", self, "_down_platform")
+	
 
 # On physics update
 func _physics_process(delta):
+	
+	if dead:
+		return
 	
 	# Apply gravity
 	if !is_on_floor():
 		motion.y += gravity
 	
 	# Set direction and apply motion
-	if !dead:
-		direction = -int(Input.is_action_pressed("world_left")) + int(Input.is_action_pressed("world_right"))
+	direction = -int(Input.is_action_pressed("world_left")) + int(Input.is_action_pressed("world_right"))
 	
 	if direction != 0:
 		facing = direction
@@ -96,7 +100,7 @@ func _physics_process(delta):
 		
 	# Hit head on ceiling
 	if is_on_ceiling():
-		motion.y = 0.08
+		motion.y = 20
 	
 	# Animation
 	$Bosco.scale.x = facing
@@ -126,10 +130,6 @@ func _physics_process(delta):
 #		if motion.y < 0:
 #			$Sprite.frame = 6
 
-	if $RespawnTimer.is_stopped() and dead:
-		dead = false
-		respawn()		
-
 # Update function
 func _process(delta):
 	# Update health bar
@@ -138,10 +138,13 @@ func _process(delta):
 		Global.update_health_bar = true
 		
 	Global.player_health = health
-	
 	Global.player_chips = chips
 	
 	$Camera2D.zoom = Vector2(0.75, 0.75) if Global.is_mobile else Vector2.ONE
+	
+	if $RespawnTimer.is_stopped() and dead:
+		dead = false
+		respawn()
 
 func hurt(damage):
 	if not dead:
@@ -169,6 +172,8 @@ func heal(amount):
 	
 func die():
 	dead = true
+	$AnimationPlayer.play("death")
+	$AnimationPlayer.playback_speed = 3
 	get_node("../Fade").fade_out()
 	$RespawnTimer.start()
 	print("Player died!")

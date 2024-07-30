@@ -23,6 +23,7 @@ func update_text():
 			label.clip_text = clip_text
 			label.uppercase = uppercase
 			label.rect_size = rect_size
+			label.align = align
 			
 	$tlbr.visible = corners
 	$trbl.visible = corners
