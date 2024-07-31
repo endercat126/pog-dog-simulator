@@ -1,3 +1,8 @@
+# 🚧 REPO MIGRATED 🚧
+### This repository has moved to [Codeberg!](https://codeberg.org/endercat-studios/pog-dog-simulator)
+
+---
+
 # ![Pog Dog Simulator](https://img.itch.zone/aW1nLzExNTY5MTI5LmdpZg==/original/aYs8%2Bu.gif)
 
 [![MIT License](https://img.shields.io/github/license/endercat126/pog-dog-simulator?style=flat)](https://github.com/endercat126/pog-dog-simulator/blob/main/LICENSE.md) [![Godot Engine](https://img.shields.io/badge/Made%20with%20Godot-%23FFFFFF.svg?style=flat&logo=godot-engine)](https://godotengine.org/) [![Itch.io](https://img.shields.io/badge/Itch.io-%23FF0B34.svg?style=flat&logo=Itch.io&logoColor=white)](https://endercatstudios.itch.io/pog-dog-simulator)
